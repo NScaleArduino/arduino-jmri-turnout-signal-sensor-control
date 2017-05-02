@@ -65,7 +65,6 @@ typedef struct SENSORS {
 
 
 TOGGLES toggles[NUM_TOGGLES] = {
-  {18, LOW},
   {19, LOW},
   {20, LOW},
   {21, LOW},
@@ -102,7 +101,8 @@ TOGGLES toggles[NUM_TOGGLES] = {
   {50, LOW},
   {51, LOW},
   {52, LOW},
-  {53, LOW},
+  {53, LOW}, 
+  {54, LOW},
 };
 
 
