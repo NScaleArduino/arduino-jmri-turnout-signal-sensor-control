@@ -1,19 +1,31 @@
-# Use Arduino to control your turnouts, signals and sensors with JMRI (and C/MRI)
+# Use Arduino to control your turnouts, signals, and sensors with JMRI (and C/MRI)
 
 Requires [Arduino CMRI](https://github.com/madleech/ArduinoCMRI)
 
 ## Turnouts
 * Pins: 2-18
-* C/MRI: 1-19
+* C/MRI: CT1-17
 
 ## Toggles (LEDS/Lights/Signals/ETC)
 * Pin 19-48
-* C/MRI:
+* C/MRI: CT18-47
 
 
 ## Sensors
 * Pins: A0-A15
-* C/MRI:
+* C/MRI: CS1-15
+
+
+# Install
+* Copy/Paste `sketch_apr22a.pde` into the  Arduino IDE
+* Install the `Arduino CMRI` package as a library
+* Compile and install the software onto your Arduino
+* Install sensor cables to the pins and add servos, lights, sensors, etc.
+* Configure JMRI
+** Add turnouts
+** Add sensors
+** Add signals
+
 
 
 # Parts List
