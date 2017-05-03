@@ -2,29 +2,44 @@
 
 Requires [Arduino CMRI](https://github.com/madleech/ArduinoCMRI)
 
-## Turnouts
-* Pins: 2-18
-* C/MRI: CT1-17
-
-## Toggles (LEDS/Lights/Signals/ETC)
-* Pin 19-48
-* C/MRI: CT18-47
-
-
-## Sensors
-* Pins: A0-A15
-* C/MRI: CS1-15
-
-
 # Install
 * Copy/Paste `sketch_apr22a.pde` into the  Arduino IDE
 * Install the `Arduino CMRI` package as a library
 * Compile and install the software onto your Arduino
 * Install sensor cables to the pins and add servos, lights, sensors, etc.
-* Configure JMRI
-**** Add turnouts
-**** Add sensors
-**** Add signals
+* Start PanelPro
+* Configure C/MRI
+* Add a node, node 0, all defaults
+* Save
+* Restart PanelPro
+* After loading profile, wait about 10-15 seconds for it to connect
+* Create/Load your panels
+* Configure your layout in PanelPro
+
+JMRIs System Name controls what pin to listen on. Arduino starts at pin 2 - JMRI starts at 1, so it can be confusing. Try matching up the pins to the JMRI table above and toggle them on/off to be certain you have the right pin.
+
+# Qwerks
+## Starting Panel Pro
+Starting JMRI is a bit weird. Start PanelPro, select your profile then wait until you see the i/o lights flash or your servos kick on (10-15 seconds) then you can open your panels.
+
+Failure to do so will result in no connection to your C/MRI.
+
+## Disconnecting
+If you disconnect or reset you'll need to restart PanelPro.
+
+# Pin to JMRI
+## Turnouts
+* Pins: 2-18
+* JMRI: CT1-17
+
+## Toggles (LEDS/Lights/Signals/ETC)
+* Pin 19-48
+* JMRI: CT18-47
+
+
+## Sensors
+* Pins: A0-A15
+* JMRI: CS1-15
 
 
 
