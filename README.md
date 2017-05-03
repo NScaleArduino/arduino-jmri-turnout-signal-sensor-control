@@ -16,16 +16,7 @@ Requires [Arduino CMRI](https://github.com/madleech/ArduinoCMRI)
 * Create/Load your panels
 * Configure your layout in PanelPro
 
-JMRIs System Name controls what pin to listen on. Arduino starts at pin 2 - JMRI starts at 1, so it can be confusing. Try matching up the pins to the JMRI table above and toggle them on/off to be certain you have the right pin.
-
-# Qwerks
-## Starting Panel Pro
-Starting JMRI is a bit weird. Start PanelPro, select your profile then wait until you see the i/o lights flash or your servos kick on (10-15 seconds) then you can open your panels.
-
-Failure to do so will result in no connection to your C/MRI.
-
-## Disconnecting
-If you disconnect or reset you'll need to restart PanelPro.
+JMRIs System Name controls what pin to listen on. Arduino starts at pin 2 - JMRI starts at 1, so it can be confusing. Try matching up the pins to the JMRI table beloq and toggle them to be certain you have the right pin.
 
 # Pin to JMRI
 ## Turnouts
@@ -59,6 +50,8 @@ And if you want to keep it on while you unplug the usb (tho not required)
 I mount the servos to the wood underside of my layout with servo tape
 * [Racers Edge 1500 Narrow Servo Tape, 3/4](https://www.amazon.com/gp/product/B002PEB28I/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B002PEB28I&linkCode=as2&tag=nscaleard-20&linkId=312075f6034e052c5479f788bfd6f3c0)
 
+I use piano wire from my LHS to connect the servo to the turnout.
+
 ## Arduino
 Cheap nockoff, might want to spend more to get a better one
 * [OSOYOO NEW ATmega2560-16AU CH340G MEGA 2560 R3 Board](https://www.amazon.com/gp/product/B00SFICZUM/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00SFICZUM&linkCode=as2&tag=nscaleard-20&linkId=d2d0c427256ada272705ef8b78446abe)
@@ -77,3 +70,11 @@ You're probablly better off with a servo wire kit, but I wanted Same Day Shippin
 * [10Pcs SMD Pre-Wired 0402 0603 0805 1206 LED Diodes White Red Light Soldered Line](http://www.ebay.com/itm/122032392862?_trksid=p2057872.m2749.l2649&var=421045039433&ssPageName=STRK%3AMEBIDX%3AIT) I used bi-color #603s.
 
  
+# Qwerks
+## Starting Panel Pro
+Starting JMRI is a bit weird. Start PanelPro, select your profile then wait until you see the i/o lights flash or your servos kick on (10-15 seconds) then you can open your panels.
+
+Failure to do so will result in no connection to your C/MRI.
+
+## Disconnecting
+If you disconnect or reset you'll need to restart PanelPro.
