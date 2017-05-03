@@ -1,17 +1,19 @@
 # Use Arduino to control your turnouts, signals and sensors with JMRI (and C/MRI)
 
+Requires [Arduino CMRI](https://github.com/madleech/ArduinoCMRI)
+
 ## Turnouts
 * Pins: 2-18
 * C/MRI: 1-19
 
 ## Toggles (LEDS/Lights/Signals/ETC)
 * Pin 19-48
-* C/MRI 
+* C/MRI:
 
 
 ## Sensors
 * Pins: A0-A15
-* C/MRI
+* C/MRI:
 
 
 # Parts List
