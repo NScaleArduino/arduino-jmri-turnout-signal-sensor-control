@@ -22,9 +22,9 @@ Requires [Arduino CMRI](https://github.com/madleech/ArduinoCMRI)
 * Compile and install the software onto your Arduino
 * Install sensor cables to the pins and add servos, lights, sensors, etc.
 * Configure JMRI
-** Add turnouts
-** Add sensors
-** Add signals
+**** Add turnouts
+**** Add sensors
+**** Add signals
 
 
 
