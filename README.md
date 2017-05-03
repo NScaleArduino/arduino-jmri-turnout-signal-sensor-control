@@ -61,7 +61,7 @@ Sensor sheild to easily hook up everything with servo cables
 You're probablly better off with a servo wire kit, but I wanted Same Day Shipping, so I spliced a bunch of these together
 * [DYWISHKEY 30cm Servo Cables, Male to Female (10 Pack)](https://www.amazon.com/gp/product/B01MXHLF3O/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B01MXHLF3O&linkCode=as2&tag=nscaleard-20&linkId=3660814bdfbfaf11e7e14043f135142d)
 
-## Block Detector Sesnsor
+## Block Detector Sensor
  * [OSOYOO 10PCS IR Infrared Obstacle Avoidance Sensor Module for Arduino Smart Car Robot](https://www.amazon.com/gp/product/B01I57HIJ0/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B01I57HIJ0&linkCode=as2&tag=nscaleard-20&linkId=8796d3ca401af69ae40c0b9d52fe3572)
 
 ## Lights
