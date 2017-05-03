@@ -16,7 +16,7 @@ Requires [Arduino CMRI](https://github.com/madleech/ArduinoCMRI)
 * Create/Load your panels
 * Configure your layout in PanelPro
 
-JMRIs System Name controls what pin to listen on. Arduino starts at pin 2 - JMRI starts at 1, so it can be confusing. Try matching up the pins to the JMRI table beloq and toggle them to be certain you have the right pin.
+JMRIs System Name controls what pin to listen on. Arduino starts at pin 2 - JMRI starts at 1, so it can be confusing. Try matching up the pins to the JMRI table below and toggle them to be certain you have the right pin.
 
 # Pin to JMRI
 ## Turnouts
@@ -26,7 +26,6 @@ JMRIs System Name controls what pin to listen on. Arduino starts at pin 2 - JMRI
 ## Toggles (LEDS/Lights/Signals/ETC)
 * Pin 19-48
 * JMRI: CT18-47
-
 
 ## Sensors
 * Pins: A0-A15
@@ -38,7 +37,7 @@ JMRIs System Name controls what pin to listen on. Arduino starts at pin 2 - JMRI
 I purchased the bulk of my parts with Amazon Same Day Shipping, the rest from eBay.
 
 ## Power
-If you plan to run more then 12 pis you'll need a PSU
+If you plan to run more then 12 pins you'll need a PSU
 * [Coolmax 400W SATA&20/24pin Power Supply V-400](https://www.amazon.com/gp/product/B000BKBVT8/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000BKBVT8&linkCode=as2&tag=nscaleard-20&linkId=cf775b619f49f44135df18b3dd96b744)
 
 And if you want to keep it on while you unplug the usb (tho not required)
@@ -62,7 +61,7 @@ Sensor sheild to easily hook up everything with servo cables
 You're probablly better off with a servo wire kit, but I wanted Same Day Shipping, so I spliced a bunch of these together
 * [DYWISHKEY 30cm Servo Cables, Male to Female (10 Pack)](https://www.amazon.com/gp/product/B01MXHLF3O/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B01MXHLF3O&linkCode=as2&tag=nscaleard-20&linkId=3660814bdfbfaf11e7e14043f135142d)
 
-## Block Detector
+## Block Detector Sesnsor
  * [OSOYOO 10PCS IR Infrared Obstacle Avoidance Sensor Module for Arduino Smart Car Robot](https://www.amazon.com/gp/product/B01I57HIJ0/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B01I57HIJ0&linkCode=as2&tag=nscaleard-20&linkId=8796d3ca401af69ae40c0b9d52fe3572)
 
 ## Lights
