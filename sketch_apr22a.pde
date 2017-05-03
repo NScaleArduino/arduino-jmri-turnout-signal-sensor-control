@@ -14,8 +14,8 @@
 const int SENSOR_GAP = 99;
 const int ANALOG_GAP = 40;
 
-const int ALIGN_MAIN = 85;
-const int ALIGN_DIVERGENT = 115;
+const int ALIGN_MAIN = 75;
+const int ALIGN_DIVERGENT = 120;
 
 const int STEP_DELAY = 10;
 const int NUM_TURNOUTS = 17;
@@ -25,8 +25,9 @@ const int NUM_SENSORS = 16;
 
 VarSpeedServo servos[NUM_TURNOUTS];
 
-CMRI cmri(0); // first SMINI, 24 inputs, 48 outputs
-CMRI cmri1(1); // second SMINI, another 24 inputs and another 48 outputs
+CMRI cmri;
+
+bool CONNECTED = false;
 
 
 typedef struct TURNOUT_DEF {
@@ -58,13 +59,15 @@ typedef struct SENSORS {
  
  * 54 pins
  * - 0 - 17 = servos
- * - 18 - 48 = node 0
- * - 49 - 54 = node 1
+ * - 18 - 36 = on
+ * - 37 - 48 = off
+ 
  * 
  */
 
 
 TOGGLES toggles[NUM_TOGGLES] = {
+  {18, LOW},
   {19, LOW},
   {20, LOW},
   {21, LOW},
@@ -97,12 +100,6 @@ TOGGLES toggles[NUM_TOGGLES] = {
   {46, LOW},
   {47, LOW},
   {48, LOW},
-  {49, LOW},
-  {50, LOW},
-  {51, LOW},
-  {52, LOW},
-  {53, LOW}, 
-  {54, LOW},
 };
 
 
@@ -166,25 +163,23 @@ void setup()
   for (int i = 0; i < NUM_TOGGLES; i++) {
       pinMode(toggles[i].pin, OUTPUT);
 
-      setToggle(i, toggles[i].on, true);
+      setLed(i, toggles[i].on, true);
   }
   
 }
 
-char c;
 void loop()
-{    
-    c = Serial.read();
+{
+    CONNECTED = true;
     
-    cmri.process_char(c);
-    cmri1.process_char(c);
+    cmri.process();
        
     for (int i = 0; i < NUM_TURNOUTS; i++) {
       setTurnout(i, getBit(turnouts[i].data.pin), false);
     }
   
     for (int i = 0; i < NUM_TOGGLES; i++) {
-      setToggle(i, getBit(toggles[i].pin), false);
+      setLed(i, getBit(toggles[i].pin), false);
     }
 
     for (int i = 0; i < NUM_SENSORS; i++) {
@@ -198,11 +193,7 @@ int getBit(int pin) {
 }
 
 void setBit(int pin, int status) {
-  if (pin <= 48) { 
-     cmri.set_bit(pin, status);
-  } else {
-   cmri1.set_bit(pin, status);
-  }
+  cmri.set_bit(pin, status);
 //if(status == HIGH){
  // Serial.println(pin);
  
@@ -212,7 +203,12 @@ void setBit(int pin, int status) {
   
 }
 
-void setToggle(int id, int status, bool force){
+void setLed(int id, int status, bool force){
+
+  if (!CONNECTED) {
+    status = toggles[id].on;
+  }
+
   if (toggles[id].on == status && force == false) {
     return true;
   }
@@ -221,10 +217,17 @@ void setToggle(int id, int status, bool force){
     
   digitalWrite(toggles[id].pin, status);
 
-  setBit(toggles[id].pin - 2, status);
+  if (id - 2 <= 48) {
+    setBit(toggles[id].pin - 2, status);
+
+  }
 }
 
 void setTurnout(int id, byte align, bool force) {
+  if (!CONNECTED) {
+    align = turnouts[id].data.pos_default;
+  }
+  
   if (turnouts[id].alignment == align && force == false) {
     return true;
   }
@@ -243,4 +246,7 @@ void setTurnout(int id, byte align, bool force) {
   turnouts[id].alignment = align;
 
   servos[id].write(turnouts[id].target_pos, STEP_DELAY, false);
+
+  //setBit(turnouts[id].data.pin - 2, turnouts[id].alignment);
+ 
 }
