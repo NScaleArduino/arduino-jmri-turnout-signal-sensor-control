@@ -2,10 +2,7 @@
 #include <SPI.h>
 
 
-// http://thenscaler.com/?page_id=661
-// http://thenscaler.com/?page_id=174
-/// https://github.com/madleech/ArduinoCMRI
-// http://jmri.org/community/clinics/NMRA2008/LayoutEditorClinic2008/LayoutEditorClinic.pdf
+// Work in progress
 
 #include <VarSpeedServo.h>
 
