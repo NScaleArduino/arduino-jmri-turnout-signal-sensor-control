@@ -2,7 +2,10 @@
 #include <SPI.h>
 
 
-// Work in progress
+// http://thenscaler.com/?page_id=661
+// http://thenscaler.com/?page_id=174
+/// https://github.com/madleech/ArduinoCMRI
+// http://jmri.org/community/clinics/NMRA2008/LayoutEditorClinic2008/LayoutEditorClinic.pdf
 
 #include <VarSpeedServo.h>
 
@@ -11,18 +14,19 @@
 const int SENSOR_GAP = 99;
 const int ANALOG_GAP = 40;
 
-const int ALIGN_MAIN = 75;
-const int ALIGN_DIVERGENT = 120;
+const int ALIGN_MAIN = 80;
+const int ALIGN_DIVERGENT = 115;
 
 const int STEP_DELAY = 10;
-const int NUM_TURNOUTS = 17;
-const int NUM_TOGGLES = 39;
+const int NUM_TURNOUTS = 19;
+const int NUM_TOGGLES = 34;
 const int NUM_SENSORS = 16;
 
 
 VarSpeedServo servos[NUM_TURNOUTS];
 
-CMRI cmri;
+CMRI cmri0(0); // first SMINI, 24 inputs, 48 outputs
+CMRI cmri1(1); // second SMINI, another 24 inputs and another 48 outputs
 
 bool CONNECTED = false;
 
@@ -64,9 +68,6 @@ typedef struct SENSORS {
 
 
 TOGGLES toggles[NUM_TOGGLES] = {
-  {18, LOW},
-  {19, LOW},
-  {20, LOW},
   {21, LOW},
   {22, LOW},
   {23, LOW},
@@ -97,6 +98,13 @@ TOGGLES toggles[NUM_TOGGLES] = {
   {46, LOW},
   {47, LOW},
   {48, LOW},
+  
+  {49, HIGH},
+  {50, HIGH},
+  {51, HIGH},
+  {52, HIGH},
+  {53, HIGH},
+  {54, HIGH},
 };
 
 
@@ -122,9 +130,11 @@ TURNOUT_DATA turnouts[NUM_TURNOUTS] = {
  {{16, ALIGN_MAIN, ALIGN_DIVERGENT, ALIGN_MAIN}, HIGH, ALIGN_MAIN},  
  {{17, ALIGN_MAIN, ALIGN_DIVERGENT, ALIGN_MAIN}, HIGH, ALIGN_MAIN},  
  {{18, ALIGN_MAIN, ALIGN_DIVERGENT, ALIGN_MAIN}, HIGH, ALIGN_MAIN},  
+ {{19, ALIGN_MAIN, ALIGN_DIVERGENT, ALIGN_MAIN}, HIGH, ALIGN_MAIN},  
+ {{20, ALIGN_MAIN, ALIGN_DIVERGENT, ALIGN_MAIN}, HIGH, ALIGN_MAIN},  
 };
 
-SENSORS sensors[16] = {
+SENSORS sensors[NUM_SENSORS] = {
   {A0},
   {A1},
   {A2},
@@ -165,39 +175,44 @@ void setup()
   
 }
 
+char c;
 void loop()
 {
     CONNECTED = true;
-    
-    cmri.process();
-       
-    for (int i = 0; i < NUM_TURNOUTS; i++) {
-      setTurnout(i, getBit(turnouts[i].data.pin), false);
-    }
-  
-    for (int i = 0; i < NUM_TOGGLES; i++) {
-      setLed(i, getBit(toggles[i].pin), false);
-    }
 
-    for (int i = 0; i < NUM_SENSORS; i++) {
-      //Serial.println(sensors[i].pin);
-      setBit(i, analogRead(sensors[i].pin) < 300 && analogRead(sensors[i].pin) > 15 ? HIGH : LOW);
+
+     while (Serial.available() > 0)
+     {
+       c = Serial.read();
+       cmri0.process_char(c);
+       cmri1.process_char(c);
+     
+        
+      for (int i = 0; i < NUM_TURNOUTS; i++) {
+        setTurnout(i, getBit(turnouts[i].data.pin), false);
+      }
+    
+      for (int i = 0; i < NUM_TOGGLES; i++) {
+        setLed(i, getBit(toggles[i].pin), false);
+      }
+  
+      for (int i = 0; i < NUM_SENSORS; i++) {
+        //Serial.println(sensors[i].pin);
+        setBit(i, analogRead(sensors[i].pin) < 300 && analogRead(sensors[i].pin) > 15 ? HIGH : LOW);
+      }
     }
 }
 
 int getBit(int pin) {
-  return cmri.get_bit(pin - 2);
+  if (pin < 48) {
+    return cmri0.get_bit(pin - 2);
+  } else {
+    return cmri1.get_bit(pin  - 48);
+  }
 }
 
 void setBit(int pin, int status) {
-  cmri.set_bit(pin, status);
-//if(status == HIGH){
- // Serial.println(pin);
- 
- //Serial.println(status);
- //Serial.println('----');
-  //}
-  
+  cmri0.set_bit(pin, status);
 }
 
 void setLed(int id, int status, bool force){
@@ -213,11 +228,6 @@ void setLed(int id, int status, bool force){
   toggles[id].on =  status;
     
   digitalWrite(toggles[id].pin, status);
-
-  if (id - 2 <= 48) {
-    setBit(toggles[id].pin - 2, status);
-
-  }
 }
 
 void setTurnout(int id, byte align, bool force) {
@@ -243,7 +253,4 @@ void setTurnout(int id, byte align, bool force) {
   turnouts[id].alignment = align;
 
   servos[id].write(turnouts[id].target_pos, STEP_DELAY, false);
-
-  //setBit(turnouts[id].data.pin - 2, turnouts[id].alignment);
- 
 }
