@@ -6,7 +6,7 @@ Requires [Arduino CMRI](https://github.com/madleech/ArduinoCMRI) & [VarSpeedServ
 * Copy/Paste `sketch_apr22a.ino` into the  Arduino IDE
 * Install the `Arduino CMRI` and `VarSpeedServo` packages as a library
 * Compile and install the software onto your Arduino
-* Install sensor cables to the pins and add servos, lights, sensors, etc.
+* Install sensor cables to the pins and add servos, lights, sensors, etc. You can also configure these later, one at a time to make setting up JMRI easier.
 * Start PanelPro
 * Configure C/MRI
 * Add a node, node 0, all defaults
