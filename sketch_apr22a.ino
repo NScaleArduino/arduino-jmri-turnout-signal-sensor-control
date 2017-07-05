@@ -1,15 +1,14 @@
 #include <CMRI.h>
 #include <SPI.h>
 
-
+// References:
 // http://thenscaler.com/?page_id=661
 // http://thenscaler.com/?page_id=174
-/// https://github.com/madleech/ArduinoCMRI
+// https://github.com/madleech/ArduinoCMRI
 // http://jmri.org/community/clinics/NMRA2008/LayoutEditorClinic2008/LayoutEditorClinic.pdf
 
 #include <VarSpeedServo.h>
 
-// Pin 0 = JMRI #1 = Sensor on # 101
 
 const int SENSOR_GAP = 99;
 const int ANALOG_GAP = 40;
@@ -54,19 +53,6 @@ typedef struct SENSORS {
   int pin;
 };
 
-/**
- * Each servo has 2 pins for red/green LEDs
- * 
- 
- * 54 pins
- * - 0 - 17 = servos
- * - 18 - 36 = on
- * - 37 - 48 = off
- 
- * 
- */
-
-
 TOGGLES toggles[NUM_TOGGLES] = {
   {21, LOW},
   {22, LOW},
@@ -75,7 +61,6 @@ TOGGLES toggles[NUM_TOGGLES] = {
   {25, LOW},
   {26, LOW},
   {27, LOW},
-  
   {28, LOW},
   {29, LOW},
   {30, LOW},
@@ -85,7 +70,6 @@ TOGGLES toggles[NUM_TOGGLES] = {
   {34, LOW},
   {35, LOW},
   {36, LOW},
-  
   {37, LOW},
   {38, LOW},
   {39, LOW},
@@ -98,7 +82,6 @@ TOGGLES toggles[NUM_TOGGLES] = {
   {46, LOW},
   {47, LOW},
   {48, LOW},
-  
   {49, HIGH},
   {50, HIGH},
   {51, HIGH},
@@ -107,10 +90,6 @@ TOGGLES toggles[NUM_TOGGLES] = {
   {54, HIGH},
 };
 
-
-/**f 
- * Pins 2 - 11 = 10x servos
- */
 
 TURNOUT_DATA turnouts[NUM_TURNOUTS] = {
   {{2, ALIGN_MAIN, ALIGN_DIVERGENT, ALIGN_MAIN}, HIGH, ALIGN_MAIN},
