@@ -1,5 +1,6 @@
 #include <CMRI.h>
 #include <SPI.h>
+#include <VarSpeedServo.h>
 
 // References:
 // http://thenscaler.com/?page_id=661
@@ -7,7 +8,6 @@
 // https://github.com/madleech/ArduinoCMRI
 // http://jmri.org/community/clinics/NMRA2008/LayoutEditorClinic2008/LayoutEditorClinic.pdf
 
-#include <VarSpeedServo.h>
 
 
 const int SENSOR_GAP = 99;
