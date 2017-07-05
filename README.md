@@ -20,12 +20,17 @@ JMRIs System Name controls what pin to listen on. Arduino starts at pin 2 - JMRI
 
 # Pin to JMRI
 ## Turnouts
-* Pins: 2-18
-* JMRI: CT1-17
+* Pins: 2-20
+* JMRI: CT1-19
 
 ## Toggles (LEDS/Lights/Signals/ETC)
-* Pin 19-48
-* JMRI: CT18-47
+* Pin 21-48
+* JMRI: CT20-47
+
+* Pin 49-54
+* JMRI: CT48-53
+
+Note: pin 54 didn't seem to work for me.
 
 ## Sensors
 * Pins: A0-A15
@@ -37,7 +42,7 @@ JMRIs System Name controls what pin to listen on. Arduino starts at pin 2 - JMRI
 I purchased the bulk of my parts with Amazon Same Day Shipping, the rest from eBay.
 
 ## Power
-If you plan to run more then 12 pins you'll need a PSU
+If you plan to run more then 10 servos you'll need a PSU
 * [Coolmax 400W SATA&20/24pin Power Supply V-400](https://www.amazon.com/gp/product/B000BKBVT8/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000BKBVT8&linkCode=as2&tag=nscaleard-20&linkId=cf775b619f49f44135df18b3dd96b744)
 
 And if you want to keep it on while you unplug the usb (tho not required)
@@ -47,9 +52,11 @@ And if you want to keep it on while you unplug the usb (tho not required)
 * [Sg90 Servo 9g Motor TowerPro RC Robot Helicopter Airplane Boat Controls(Pack of 10) by IFANCY-TECH](https://www.amazon.com/gp/product/B01G95KPZ4/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B01G95KPZ4&linkCode=as2&tag=nscaleard-20&linkId=e70a3b7667552c12bddbadeb456a4fd2)
 
 I mount the servos to the wood underside of my layout with servo tape
-* [Racers Edge 1500 Narrow Servo Tape, 3/4](https://www.amazon.com/gp/product/B002PEB28I/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B002PEB28I&linkCode=as2&tag=nscaleard-20&linkId=312075f6034e052c5479f788bfd6f3c0)
+* [Gorilla Heavy Duty Mounting Tape](https://www.amazon.com/gp/product/B019HT1U9E/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B019HT1U9E&linkCode=as2&tag=nscaleard-20&linkId=22d5d6dad6af545794a4e6c702ee4163)
 
-I use piano wire from my LHS to connect the servo to the turnout.
+
+I use piano wire (.032 push rod) from my LHS to connect the servo to the turnout.
+
 
 ## Arduino
 Cheap nockoff, might want to spend more to get a better one
