@@ -39,7 +39,7 @@ Note: pin 54 didn't seem to work for me.
 
 
 # Parts List
-I purchased the bulk of my parts with Amazon Same Day Shipping, the rest from eBay.
+I purchased the bulk of my parts with Amazon Same Day Shipping, the rest from eBay. 
 
 ## Power
 If you plan to run more then 10 servos you'll need a PSU
@@ -70,6 +70,8 @@ You're probablly better off with a servo wire kit, but I wanted Same Day Shippin
 
 ## Block Detector Sensor
  * [OSOYOO 10PCS IR Infrared Obstacle Avoidance Sensor Module for Arduino Smart Car Robot](https://www.amazon.com/gp/product/B01I57HIJ0/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B01I57HIJ0&linkCode=as2&tag=nscaleard-20&linkId=8796d3ca401af69ae40c0b9d52fe3572)
+ 
+ Current detection up next!
 
 ## Lights
 * [20 pcs 1/4W 1% Metal Film Resistors](http://www.ebay.com/itm/361963578553?_trksid=p2057872.m2749.l2649&ssPageName=STRK%3AMEBIDX%3AIT)
