@@ -1,10 +1,10 @@
 # Use Arduino to control your turnouts, signals, and sensors with JMRI (and C/MRI)
 
-Requires [Arduino CMRI](https://github.com/madleech/ArduinoCMRI)
+Requires [Arduino CMRI](https://github.com/madleech/ArduinoCMRI) & [VarSpeedServo](https://github.com/netlabtoolkit/VarSpeedServo)
 
 # Install
 * Copy/Paste `sketch_apr22a.ino` into the  Arduino IDE
-* Install the `Arduino CMRI` package as a library
+* Install the `Arduino CMRI` and `VarSpeedServo` packages as a library
 * Compile and install the software onto your Arduino
 * Install sensor cables to the pins and add servos, lights, sensors, etc.
 * Start PanelPro
