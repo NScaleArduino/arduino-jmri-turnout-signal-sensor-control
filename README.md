@@ -3,7 +3,7 @@
 Requires [Arduino CMRI](https://github.com/madleech/ArduinoCMRI)
 
 # Install
-* Copy/Paste `sketch_apr22a.pde` into the  Arduino IDE
+* Copy/Paste `sketch_apr22a.ino` into the  Arduino IDE
 * Install the `Arduino CMRI` package as a library
 * Compile and install the software onto your Arduino
 * Install sensor cables to the pins and add servos, lights, sensors, etc.
